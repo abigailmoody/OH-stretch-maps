@@ -472,7 +472,7 @@ def electric_field_vectors(universe):
     
     r = _minimum_image(h_pos[:, None, :] - np.full((universe.nstretch, universe.natoms, 3), atom_pos), box)
     
-    with warnings.filterwarnings('ignore', category=RuntimeWarning):
+    with warnings.filterwarnings('ignore', category=RuntimeWarning) as w:
         E = np.nansum(q[None, ..., None] * (r / (dists**3)[..., None]), axis=1)
     
     return E
