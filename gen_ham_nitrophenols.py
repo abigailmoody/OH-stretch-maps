@@ -451,6 +451,7 @@ def electric_field_vectors(universe):
     
     h_pos = universe.hydrogens.positions
     atom_pos = universe.universe.atoms.positions
+    box = universe.universe.dimensions
     
     box /= box_conversion
     h_pos /= a0
