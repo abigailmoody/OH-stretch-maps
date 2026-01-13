@@ -166,7 +166,7 @@ class Universe:
         self.intra_ndx = [np.arange(0, self.nwaters*2, 2), np.arange(1, self.nwaters*2, 2)]
         
         self.dist_mask_water = (np.arange(self.nwaters*2)[..., None], np.full((2, self.nwaters, self.res_len), self.waters.residues.indices).reshape(self.nwaters*2, self.res_len, order='F'))
-        self.dist_mask_al = (np.arange(self.nwaters*2, self.nstretch), self.alcohols.indices.reshape(len(self.alcohols)//2, 2))
+        self.dist_mask_al = (np.arange(self.nwaters*2, self.nstretch)[..., None], self.alcohols.indices.reshape(len(self.alcohols)//2, 2))
         
         exclude_sel = args.exclude_selection
         if isinstance(exclude_sel, list):
