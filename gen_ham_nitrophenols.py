@@ -383,7 +383,7 @@ def calc_ham_dip_ram(universe, frame):
     if 'ham' in universe.calc_types:
         hamiltonian = np.zeros((universe.nstretch, universe.nstretch))
         
-        oxy_pos = np.full((2, universe.nwaters, 3), universe.oxygens.positions).reshape(universe.nstretch, 3, order='F')
+        oxy_pos = np.concatenate([np.full((2, universe.nwaters, 3), universe.oxygens[:universe.nwaters].positions).reshape((universe.nwaters*2,3), order='F'), universe.oxygens[universe.nwaters:].positions])
         d = oxy_pos + (0.67 * bonds)
         dists = distance_array(d, d, box=box)
         
