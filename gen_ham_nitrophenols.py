@@ -362,7 +362,7 @@ def calc_ham_dip_ram(universe, frame):
             f_z = switching_function(z, box=universe.universe.dimensions[universe.interface_axis], r_c=universe.switching_cutoff)
         else:
             f_z = switching_function(z, r_c=universe.switching_cutoff)
-        f_z = np.full((2, len(f_z)), f_z).reshape(universe.nstretch, order='F')
+        f_z = np.concatenate((np.full((2, universe.nwaters*2), f_z[:universe.nwaters]).reshape(universe.nwaters*2, order='F'), f_z[universe.nwaters:]))
         sfg_dipole = dipole * f_z[..., None]
     else:
         sfg_dipole = None
