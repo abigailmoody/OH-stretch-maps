@@ -1,4 +1,4 @@
-# atomistic-water-spectra
+# OH-stretch-maps
  
 Contains code to generate vibrational Hamiltonian, transition dipole, and transition polarizability trajectories in binary file formats to be passed to [NISE](https://github.com/GHlacour/NISE_2017) for final vibrational spectra calculations  
 
